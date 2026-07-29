@@ -1,0 +1,583 @@
+<!-- Versión compacta sin línea superior naranja. -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Babel Branding | Presentaciones corporativas | Banner compacto</title>
+  <style>
+    :root {
+      --bb-white: #ffffff;
+      --bb-bg: #fcfcfd;
+      --bb-gray-50: #f9fafb;
+      --bb-gray-100: #f2f4f7;
+      --bb-gray-200: #eaecf0;
+      --bb-gray-300: #d0d5dd;
+      --bb-gray-500: #667085;
+      --bb-gray-600: #475467;
+      --bb-gray-700: #344054;
+      --bb-gray-900: #101828;
+      --bb-orange: #ef9700;
+      --bb-terracotta: #e34d11;
+      --bb-yellow: #ffc600;
+      --bb-claude: #de7353;
+      --bb-gradient: linear-gradient(90deg, #ef9700 0%, #e34d11 100%);
+      --bb-shadow: inset 0 0 0 1px rgba(16, 24, 40, .06),
+                   0 2px 2px rgba(16, 24, 40, .04),
+                   0 18px 34px -18px rgba(16, 24, 40, .22);
+      --bb-radius: 16px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body {
+      width: 100%;
+      min-width: 0;
+      min-height: 100%;
+      margin: 0;
+      background: transparent;
+    }
+
+    body {
+      font-family: "Segoe UI", Arial, sans-serif;
+      color: var(--bb-gray-900);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    .bb-banner {
+      isolation: isolate;
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4.8 / 1;
+      min-height: 250px;
+      height: auto;
+      max-height: 320px;
+      overflow: hidden;
+      border-radius: var(--bb-radius);
+      background:
+        linear-gradient(rgba(16, 24, 40, .025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(16, 24, 40, .025) 1px, transparent 1px),
+        linear-gradient(112deg, #ffffff 0%, #ffffff 54%, #fcfcfd 100%);
+      background-size: 24px 24px, 24px 24px, auto;
+      box-shadow: var(--bb-shadow);
+    }
+
+
+    .bb-banner::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      right: -8%;
+      top: -55%;
+      width: 48%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle at 38% 42%, rgba(255, 198, 0, .36), rgba(239, 151, 0, .2) 34%, rgba(227, 77, 17, .08) 58%, transparent 72%);
+      filter: blur(2px);
+      animation: bb-orbit 10s ease-in-out infinite alternate;
+    }
+
+    .bb-glow {
+      position: absolute;
+      z-index: -1;
+      right: 11%;
+      bottom: -64%;
+      width: 44%;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(227, 77, 17, .16), rgba(239, 151, 0, .08) 42%, transparent 70%);
+      animation: bb-orbit-reverse 12s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+
+    .bb-inner {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1.72fr) minmax(170px, .54fr) minmax(240px, .68fr);
+      align-items: center;
+      gap: 38px;
+      width: 100%;
+      height: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 22px 38px 20px;
+    }
+
+    .bb-copy { min-width: 0; }
+
+    .bb-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      margin-bottom: 10px;
+    }
+
+    .bb-kicker {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 3px 10px;
+      border: 1px solid rgba(239, 151, 0, .26);
+      border-radius: 100px;
+      background: rgba(239, 151, 0, .08);
+      color: #b56f00;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: none;
+      white-space: nowrap;
+    }
+
+    .bb-title {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(28px, 2.65vw, 39px);
+      line-height: 1.04;
+      letter-spacing: -.035em;
+      font-weight: 700;
+      text-wrap: balance;
+    }
+
+    .bb-title-accent {
+      background: var(--bb-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .bb-lead {
+      max-width: 690px;
+      margin: 20px 0 0;
+      color: var(--bb-gray-600);
+      font-size: 15px;
+      line-height: 1.34;
+    }
+
+    .bb-visual {
+      position: relative;
+      display: grid;
+      place-items: center;
+      min-width: 0;
+      height: 166px;
+      perspective: 900px;
+    }
+
+    .bb-slide-stack {
+      position: relative;
+      width: min(100%, 185px);
+      aspect-ratio: 1.42;
+      transform-style: preserve-3d;
+    }
+
+    .bb-slide {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      border-radius: 11px;
+      background: #fff;
+      box-shadow: 0 18px 32px -18px rgba(16, 24, 40, .38), inset 0 0 0 1px rgba(16, 24, 40, .08);
+      transform-origin: 50% 80%;
+    }
+
+    .bb-slide-back {
+      transform: translate3d(-15px, 12px, -60px) rotate(-6deg);
+      opacity: .6;
+      background: linear-gradient(135deg, #f2f4f7, #fff);
+      animation: bb-card-back 7s ease-in-out infinite;
+    }
+
+    .bb-slide-mid {
+      transform: translate3d(14px, 7px, -28px) rotate(5deg);
+      opacity: .82;
+      background: linear-gradient(145deg, #fff, #f9fafb);
+      animation: bb-card-mid 7s ease-in-out .25s infinite;
+    }
+
+    .bb-slide-front {
+      transform: translateZ(16px) rotate(-1deg);
+      animation: bb-card-front 7s ease-in-out .5s infinite;
+    }
+
+    .bb-slide-front::after {
+      content: "";
+      position: absolute;
+      top: -18%;
+      left: -48%;
+      width: 30%;
+      height: 145%;
+      transform: rotate(18deg);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.82), transparent);
+      animation: bb-shine 6.4s ease-in-out infinite;
+    }
+
+    .bb-slide-topbar {
+      height: 9px;
+      background: var(--bb-gradient);
+    }
+
+    .bb-slide-body {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 12px;
+      height: calc(100% - 9px);
+      padding: 13px 12px 10px;
+    }
+
+    .bb-slide-kicker {
+      width: 44%;
+      height: 5px;
+      margin-bottom: 9px;
+      border-radius: 6px;
+      background: var(--bb-orange);
+    }
+
+    .bb-slide-heading {
+      width: 92%;
+      height: 10px;
+      margin-bottom: 7px;
+      border-radius: 7px;
+      background: #1d2939;
+    }
+
+    .bb-slide-heading.short { width: 72%; }
+
+    .bb-slide-line {
+      width: 86%;
+      height: 5px;
+      margin-top: 7px;
+      border-radius: 5px;
+      background: #d0d5dd;
+    }
+
+    .bb-slide-line.short { width: 62%; }
+
+    .bb-chart {
+      align-self: center;
+      justify-self: center;
+      position: relative;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: conic-gradient(var(--bb-orange) 0 42%, var(--bb-terracotta) 42% 68%, #eaecf0 68% 100%);
+      animation: bb-chart-pulse 4s ease-in-out infinite;
+    }
+
+    .bb-chart::after {
+      content: "";
+      position: absolute;
+      inset: 10px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px rgba(16, 24, 40, .04);
+    }
+
+    .bb-slide-label {
+      position: absolute;
+      left: 15px;
+      bottom: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--bb-gray-500);
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: .05em;
+      text-transform: none;
+    }
+
+    .bb-slide-label::before {
+      content: "";
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--bb-orange);
+    }
+
+    .bb-actions {
+      min-width: 0;
+      width: 100%;
+      max-width: 240px;
+      justify-self: end;
+      padding: 15px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.78);
+      box-shadow: inset 0 0 0 1px rgba(16,24,40,.07), 0 14px 28px -22px rgba(16,24,40,.35);
+      backdrop-filter: blur(10px);
+    }
+
+    .bb-actions-label {
+      margin: 0 0 10px;
+      color: var(--bb-gray-700);
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+
+    .bb-buttons {
+      display: grid;
+      gap: 8px;
+    }
+
+    .bb-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 42px;
+      padding: 9px 14px;
+      border: 0;
+      border-radius: 100px;
+      font: inherit;
+      font-size: 11.5px;
+      font-weight: 700;
+      line-height: 1;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+    }
+
+    .bb-btn svg {
+      width: 17px;
+      height: 17px;
+      flex: 0 0 17px;
+      fill: currentColor;
+    }
+
+    .bb-btn-chatgpt {
+      color: #fff;
+      background: #101010;
+      box-shadow: 0 9px 20px -13px rgba(0,0,0,.8);
+      animation: bb-cta-breathe 4.8s ease-in-out infinite;
+    }
+
+    .bb-btn-chatgpt:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.12);
+      box-shadow: 0 14px 24px -14px rgba(0,0,0,.8);
+    }
+
+    .bb-btn-chatgpt:focus-visible,
+    .bb-manual:focus-visible {
+      outline: 3px solid rgba(239,151,0,.42);
+      outline-offset: 3px;
+    }
+
+    .bb-btn-claude {
+      color: #fff;
+      background: var(--bb-claude);
+      opacity: 1;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .bb-manual {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 10px;
+      color: var(--bb-gray-700);
+      font-size: 11.5px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .bb-manual::after {
+      content: "\2192";
+      color: var(--bb-orange);
+      font-size: 16px;
+      line-height: 1;
+      transition: transform .18s ease;
+    }
+
+    .bb-manual:hover { color: var(--bb-gray-900); }
+    .bb-manual:hover::after { transform: translateX(3px); }
+
+    .bb-note {
+      margin: 5px 0 0;
+      color: var(--bb-gray-500);
+      font-size: 10px;
+      line-height: 1.3;
+    }
+
+
+    @keyframes bb-orbit {
+      from { transform: translate3d(-2%, -2%, 0) scale(.98); }
+      to { transform: translate3d(5%, 5%, 0) scale(1.06); }
+    }
+
+    @keyframes bb-orbit-reverse {
+      from { transform: translate3d(3%, 4%, 0) scale(1.05); }
+      to { transform: translate3d(-5%, -3%, 0) scale(.97); }
+    }
+
+    @keyframes bb-card-front {
+      0%, 100% { transform: translate3d(0, 0, 16px) rotate(-1deg); }
+      50% { transform: translate3d(0, -7px, 24px) rotate(.7deg); }
+    }
+
+    @keyframes bb-card-mid {
+      0%, 100% { transform: translate3d(14px, 7px, -28px) rotate(5deg); }
+      50% { transform: translate3d(18px, 2px, -18px) rotate(6.2deg); }
+    }
+
+    @keyframes bb-card-back {
+      0%, 100% { transform: translate3d(-15px, 12px, -60px) rotate(-6deg); }
+      50% { transform: translate3d(-20px, 8px, -52px) rotate(-7.2deg); }
+    }
+
+    @keyframes bb-shine {
+      0%, 66% { left: -48%; opacity: 0; }
+      72% { opacity: .85; }
+      88% { left: 128%; opacity: 0; }
+      100% { left: 128%; opacity: 0; }
+    }
+
+    @keyframes bb-chart-pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.055); }
+    }
+
+    @keyframes bb-cta-breathe {
+      0%, 100% { box-shadow: 0 9px 20px -13px rgba(0,0,0,.8), 0 0 0 0 rgba(16,16,16,0); }
+      50% { box-shadow: 0 9px 20px -13px rgba(0,0,0,.8), 0 0 0 6px rgba(16,16,16,.06); }
+    }
+
+    @media (max-width: 1080px) {
+      .bb-inner {
+        grid-template-columns: minmax(0, 1.62fr) minmax(150px, .5fr) minmax(220px, .64fr);
+        gap: 28px;
+        padding-inline: 26px;
+      }
+      .bb-title { font-size: clamp(27px, 3.2vw, 35px); }
+      .bb-visual { height: 154px; }
+      .bb-slide-stack { width: min(100%, 170px); }
+      .bb-actions { padding: 13px; }
+    }
+
+    @media (max-width: 860px) {
+      .bb-inner {
+        grid-template-columns: minmax(0, 1.45fr) minmax(230px, .78fr);
+        gap: 22px;
+      }
+      .bb-visual { display: none; }
+      .bb-title { max-width: 560px; }
+      .bb-lead { max-width: 560px; }
+    }
+
+    @media (max-width: 620px) {
+      .bb-banner {
+        min-height: 310px;
+        max-height: none;
+        border-radius: 12px;
+      }
+      .bb-banner::after { width: 76%; right: -26%; top: -26%; }
+      .bb-glow { width: 82%; right: -24%; bottom: -48%; }
+      .bb-inner {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
+        gap: 11px;
+        padding: 20px 20px 17px;
+      }
+      .bb-brand-row { margin-bottom: 8px; gap: 0; }
+      .bb-kicker { font-size: 9px; min-height: 22px; padding-inline: 8px; }
+      .bb-title { font-size: clamp(25px, 8.1vw, 32px); line-height: 1.03; }
+      .bb-lead { margin-top: 20px; font-size: 15px; line-height: 1.32; }
+      .bb-actions { width: 100%; max-width: none; padding: 0; background: transparent; box-shadow: none; backdrop-filter: none; }
+      .bb-actions-label { display: none; }
+      .bb-buttons { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .bb-btn { min-height: 44px; padding-inline: 10px; font-size: 11px; gap: 7px; }
+      .bb-btn svg { width: 16px; height: 16px; flex-basis: 16px; }
+      .bb-manual { margin-top: 9px; font-size: 11px; }
+      .bb-note { display: none; }
+    }
+
+    @media (max-width: 390px) {
+      .bb-inner { padding-inline: 16px; }
+      .bb-kicker { letter-spacing: .08em; }
+      .bb-btn { white-space: normal; text-align: center; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .001ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+      .bb-btn, .bb-manual::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <section class="bb-banner" aria-labelledby="bb-title">
+    <span class="bb-glow" aria-hidden="true"></span>
+
+    <div class="bb-inner">
+      <div class="bb-copy">
+        <div class="bb-brand-row">
+          <span class="bb-kicker">Babel Branding</span>
+        </div>
+
+        <h1 class="bb-title" id="bb-title">
+          Crea presentaciones corporativas <span class="bb-title-accent">autom&aacute;ticamente</span>
+        </h1>
+
+        <p class="bb-lead">
+          Convierte tus ideas en presentaciones listas para compartir: ahorra tiempo de maquetaci&oacute;n y mant&eacute;n siempre la identidad visual de Babel.
+        </p>
+      </div>
+
+      <div class="bb-visual" aria-hidden="true">
+        <div class="bb-slide-stack">
+          <div class="bb-slide bb-slide-back"></div>
+          <div class="bb-slide bb-slide-mid"></div>
+          <div class="bb-slide bb-slide-front">
+            <div class="bb-slide-topbar"></div>
+            <div class="bb-slide-body">
+              <div>
+                <div class="bb-slide-kicker"></div>
+                <div class="bb-slide-heading"></div>
+                <div class="bb-slide-heading short"></div>
+                <div class="bb-slide-line"></div>
+                <div class="bb-slide-line short"></div>
+              </div>
+              <div class="bb-chart"></div>
+            </div>
+            <span class="bb-slide-label">Identidad Babel</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="bb-actions" aria-label="Acciones de Babel Branding">
+        <p class="bb-actions-label">Empieza a crear con la habilidad</p>
+        <div class="bb-buttons">
+          <!-- Sustituir #URL_CHATGPT por el enlace final de instalacion. -->
+          <a class="bb-btn bb-btn-chatgpt" href="#URL_CHATGPT" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.949 6.547a3.94 3.94 0 0 0-.348-3.273 4.11 4.11 0 0 0-4.4-1.934A4.1 4.1 0 0 0 8.423.2 4.15 4.15 0 0 0 6.305.086a4.1 4.1 0 0 0-1.891.948 4.04 4.04 0 0 0-1.158 1.753 4.1 4.1 0 0 0-1.563.679A4 4 0 0 0 .554 4.72a3.99 3.99 0 0 0 .502 4.731 3.94 3.94 0 0 0 .346 3.274 4.11 4.11 0 0 0 4.402 1.933c.382.425.852.764 1.377.995.526.231 1.095.35 1.67.346 1.78.002 3.358-1.132 3.901-2.804a4.1 4.1 0 0 0 1.563-.68 4 4 0 0 0 1.14-1.253 3.99 3.99 0 0 0-.506-4.716m-6.097 8.406a3.05 3.05 0 0 1-1.945-.694l.096-.054 3.23-1.838a.53.53 0 0 0 .265-.455v-4.49l1.366.778q.02.011.025.035v3.722c-.003 1.653-1.361 2.992-3.037 2.996m-6.53-2.75a2.95 2.95 0 0 1-.36-2.01l.095.057L5.29 12.09a.53.53 0 0 0 .527 0l3.949-2.246v1.555a.05.05 0 0 1-.022.041L6.473 13.3c-1.454.826-3.311.335-4.15-1.098m-.85-6.94A3.02 3.02 0 0 1 3.07 3.949v3.785a.51.51 0 0 0 .262.451l3.93 2.237-1.366.779a.05.05 0 0 1-.048 0L2.585 9.342a2.98 2.98 0 0 1-1.113-4.094zm11.216 2.571L8.747 5.576l1.362-.776a.05.05 0 0 1 .048 0l3.265 1.86a3 3 0 0 1 1.173 1.207 2.96 2.96 0 0 1-.27 3.2 3.05 3.05 0 0 1-1.36.997V8.279a.52.52 0 0 0-.276-.445m1.36-2.015-.097-.057-3.226-1.855a.53.53 0 0 0-.53 0L6.249 6.153V4.598a.04.04 0 0 1 .019-.04L9.533 2.7a3.07 3.07 0 0 1 3.257.139c.474.325.843.778 1.066 1.303.223.526.289 1.103.191 1.664zM5.503 8.575 4.139 7.8a.05.05 0 0 1-.026-.037V4.049c0-.57.166-1.127.476-1.607s.752-.864 1.275-1.105a3.08 3.08 0 0 1 3.234.41l-.096.054-3.23 1.838a.53.53 0 0 0-.265.455zm.742-1.577 1.758-1 1.762 1v2l-1.755 1-1.762-1z"/>
+            </svg>
+            <span>Instalar en ChatGPT</span>
+          </a>
+
+          <button class="bb-btn bb-btn-claude" type="button" disabled aria-disabled="true">
+            <svg aria-hidden="true" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/>
+            </svg>
+            <span>Pr&oacute;ximamente en Claude</span>
+          </button>
+        </div>
+
+        <!-- Sustituir #URL_MANUAL por el enlace final al manual. -->
+        <a class="bb-manual" href="#URL_MANUAL" target="_blank" rel="noopener noreferrer">Ver manual de uso</a>
+        <p class="bb-note">Uso interno &middot; Genera archivos corporativos editables</p>
+      </aside>
+    </div>
+  </section>
+</body>
+</html>
